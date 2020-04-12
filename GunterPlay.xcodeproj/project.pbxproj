@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5559AA702441A866005FAAA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA6F2441A866005FAAA6 /* AppDelegate.m */; };
+		5559AA732441A866005FAAA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA722441A866005FAAA6 /* ViewController.m */; };
+		5559AA752441A869005FAAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5559AA742441A869005FAAA6 /* Assets.xcassets */; };
+		5559AA782441A869005FAAA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5559AA762441A869005FAAA6 /* Main.storyboard */; };
+		5559AA7B2441A869005FAAA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA7A2441A869005FAAA6 /* main.m */; };
+		5559AA842442FA46005FAAA6 /* OAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA832442FA46005FAAA6 /* OAUtil.m */; };
+		5559AA872442FA8E005FAAA6 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA862442FA8E005FAAA6 /* Constants.m */; };
+		5559AA9924433B4B005FAAA6 /* libPods-jairserver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5559AA9824433B3E005FAAA6 /* libPods-jairserver.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5559AA6B2441A866005FAAA6 /* GunterPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GunterPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5559AA6E2441A866005FAAA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5559AA6F2441A866005FAAA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5559AA712441A866005FAAA6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5559AA722441A866005FAAA6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5559AA742441A869005FAAA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5559AA772441A869005FAAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5559AA792441A869005FAAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5559AA7A2441A869005FAAA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5559AA7C2441A869005FAAA6 /* GunterPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GunterPlay.entitlements; sourceTree = "<group>"; };
+		5559AA822442FA46005FAAA6 /* OAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAUtil.h; sourceTree = "<group>"; };
+		5559AA832442FA46005FAAA6 /* OAUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAUtil.m; sourceTree = "<group>"; };
+		5559AA852442FA8E005FAAA6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5559AA862442FA8E005FAAA6 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		5559AA9824433B3E005FAAA6 /* libPods-jairserver.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-jairserver.a"; path = "GunterPlay/libPods-jairserver.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5559AA682441A866005FAAA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5559AA9924433B4B005FAAA6 /* libPods-jairserver.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5559AA622441A866005FAAA6 = {
+			isa = PBXGroup;
+			children = (
+				5559AA6D2441A866005FAAA6 /* GunterPlay */,
+				5559AA6C2441A866005FAAA6 /* Products */,
+				5559AA9724433B3E005FAAA6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5559AA6C2441A866005FAAA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5559AA6B2441A866005FAAA6 /* GunterPlay.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5559AA6D2441A866005FAAA6 /* GunterPlay */ = {
+			isa = PBXGroup;
+			children = (
+				5559AA852442FA8E005FAAA6 /* Constants.h */,
+				5559AA862442FA8E005FAAA6 /* Constants.m */,
+				5559AA822442FA46005FAAA6 /* OAUtil.h */,
+				5559AA832442FA46005FAAA6 /* OAUtil.m */,
+				5559AA6E2441A866005FAAA6 /* AppDelegate.h */,
+				5559AA6F2441A866005FAAA6 /* AppDelegate.m */,
+				5559AA712441A866005FAAA6 /* ViewController.h */,
+				5559AA722441A866005FAAA6 /* ViewController.m */,
+				5559AA742441A869005FAAA6 /* Assets.xcassets */,
+				5559AA762441A869005FAAA6 /* Main.storyboard */,
+				5559AA792441A869005FAAA6 /* Info.plist */,
+				5559AA7A2441A869005FAAA6 /* main.m */,
+				5559AA7C2441A869005FAAA6 /* GunterPlay.entitlements */,
+			);
+			path = GunterPlay;
+			sourceTree = "<group>";
+		};
+		5559AA9724433B3E005FAAA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5559AA9824433B3E005FAAA6 /* libPods-jairserver.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5559AA6A2441A866005FAAA6 /* GunterPlay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5559AA7F2441A869005FAAA6 /* Build configuration list for PBXNativeTarget "GunterPlay" */;
+			buildPhases = (
+				5559AA672441A866005FAAA6 /* Sources */,
+				5559AA682441A866005FAAA6 /* Frameworks */,
+				5559AA692441A866005FAAA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GunterPlay;
+			productName = GunterPlay;
+			productReference = 5559AA6B2441A866005FAAA6 /* GunterPlay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5559AA632441A866005FAAA6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = TianYuan;
+				TargetAttributes = {
+					5559AA6A2441A866005FAAA6 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 5559AA662441A866005FAAA6 /* Build configuration list for PBXProject "GunterPlay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5559AA622441A866005FAAA6;
+			productRefGroup = 5559AA6C2441A866005FAAA6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5559AA6A2441A866005FAAA6 /* GunterPlay */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5559AA692441A866005FAAA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5559AA752441A869005FAAA6 /* Assets.xcassets in Resources */,
+				5559AA782441A869005FAAA6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5559AA672441A866005FAAA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5559AA872442FA8E005FAAA6 /* Constants.m in Sources */,
+				5559AA732441A866005FAAA6 /* ViewController.m in Sources */,
+				5559AA842442FA46005FAAA6 /* OAUtil.m in Sources */,
+				5559AA7B2441A869005FAAA6 /* main.m in Sources */,
+				5559AA702441A866005FAAA6 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5559AA762441A869005FAAA6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5559AA772441A869005FAAA6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5559AA7D2441A869005FAAA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5559AA7E2441A869005FAAA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5559AA802441A869005FAAA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GunterPlay/GunterPlay.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = XT5ZNFW2T8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GunterPlay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GunterPlay",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arcfoxgt.GunterPlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5559AA812441A869005FAAA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GunterPlay/GunterPlay.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = XT5ZNFW2T8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GunterPlay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GunterPlay",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arcfoxgt.GunterPlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5559AA662441A866005FAAA6 /* Build configuration list for PBXProject "GunterPlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5559AA7D2441A869005FAAA6 /* Debug */,
+				5559AA7E2441A869005FAAA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5559AA7F2441A869005FAAA6 /* Build configuration list for PBXNativeTarget "GunterPlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5559AA802441A869005FAAA6 /* Debug */,
+				5559AA812441A869005FAAA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5559AA632441A866005FAAA6 /* Project object */;
+}
