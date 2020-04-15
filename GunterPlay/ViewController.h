@@ -7,11 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "GCDAsyncSocket.h"
 
-@interface ViewController : NSViewController<NSNetServiceDelegate,NSNetServiceBrowserDelegate>
+#import <GCDWebServer.h>
+#import <GCDWebServer/GCDWebServerDataResponse.h>
+
+@interface ViewController : NSViewController<NSNetServiceDelegate,GCDAsyncSocketDelegate,GCDWebServerDelegate>
 {
     NSNetService *service;
-    NSNetServiceBrowser* browser;
+    GCDAsyncSocket *socket;
+    NSThread *heartThread;
+    NSMutableArray *clientSocket;
+    GCDWebServer *webServer;
 
 }
 

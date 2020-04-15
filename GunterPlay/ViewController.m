@@ -12,166 +12,280 @@
 #import "Constants.h"
 
 
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    CFSocketContext context = { 0, (__bridge void *) self, NULL, NULL, NULL };
 
-
-    
-    NSString *publishingDomain =  @"local.";
     NSString *macAddress = [OAUtil getMacAddressForInterface:UseNetworkInterface];
-     
-     NSString *publishingName = @"GunterPlay";
- 
-    NSNetService *service = [[NSNetService alloc] initWithDomain:publishingDomain type:AirPlayServiceType name:publishingName port:AirPlayPort];
-    
+    NSNetService *services = [[NSNetService alloc] initWithDomain:PublishingDomain type:AirPlayServiceType name:PublishingName port:AirPlayPort];
+    services.delegate = self;
+
+
     NSDictionary *txtRecordDic = @{
     @"features":@"0x4A7FFFF7,0xE",
-    @"flags":@"0x44",
+    @"flags":@"0x4",
     @"srcvers":@"220.68",
     @"vv":@"2",
-    @"pi":@"fad7d0c8-b455-4d94-97e9-8f7829208e82",
-    @"pk":@"6b589171628bf0e052aedd517fbb751164a4e3f0ecd33fb37c4e956475da24a6",
+    @"pi":@"4de11299-e97b-479b-8207-8359b12039a5",
+    @"pk":@"d84264f17cbb4c4f23c3037203f0d171c86b4a613c0c7ff15f8aac0028981259",
     @"model":@"AppleTV5,3",
     @"deviceid":macAddress
     };
     
+    NSData* txtRecordData = txtRecordData = [NSNetService dataFromTXTRecordDictionary: txtRecordDic];
+    [services setTXTRecordData:txtRecordData];
     
+    [services scheduleInRunLoop: [NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 
-    NSData*txtRecordData = nil;
-    service.delegate = self;
-
-    if(txtRecordDic)
-    txtRecordData = [NSNetService dataFromTXTRecordDictionary: txtRecordDic];
-    [service setTXTRecordData:txtRecordData];
+    [services publish];
     
-    self->service = service;
-
+    service = services;
     
-     NSRunLoop *mainRunLoop = [NSRunLoop currentRunLoop];
-      
-    [service scheduleInRunLoop:mainRunLoop forMode:NSDefaultRunLoopMode];
-
-    [service publish];
-
     
+    
+    
+    webServer =  [[GCDWebServer alloc] init];
+    webServer.delegate = self;
+    
+    
+    [webServer addHandlerWithMatchBlock:^GCDWebServerRequest *(NSString* requestMethod, NSURL* requestURL, NSDictionary* requestHeaders, NSString* urlPath, NSDictionary* urlQuery) {
+        
+        return [[GCDWebServerRequest alloc] initWithMethod:requestMethod url:requestURL headers:requestHeaders path:urlPath query:urlQuery];
+        
+    } processBlock:^GCDWebServerResponse *(GCDWebServerRequest* request) {
+        
+        
+        NSString *method = request.method;
+        NSString *url = request.URL.relativePath;
+        NSString *path = request.path;
+        NSString *contentType = request.contentType;
+        
+        
+        
+        
+        NSLog(@"method=%@ url=%@ path=%@ contentType=%@",method,url,path,contentType);
+        
+        GCDWebServerResponse *response = nil;
+        
+        
+        if ([method isEqualToString:@"POST"]) {
+            
+            if ([path isEqualToString:@"/pair-setup"]) {
+                
+                response = [[GCDWebServerResponse alloc] init];
+                response.contentType = @"application/octet-stream";
+                response.contentLength = 32;//string.length;
+                response.statusCode = 200;
+                [response setValue:@"AirTunes/220.68" forAdditionalHeader:@"Server"];
+                [response setValue:@"0" forAdditionalHeader:@"CSeq"];
+                
+                
+            }
+            
+            if ([path isEqualToString:@"/pair-verify"]) {
+                
+                response = [[GCDWebServerResponse alloc] init];
+                response.contentType = @"application/octet-stream";
+                response.contentLength = 96;//string.length;
+                response.statusCode = 200;
+                [response setValue:@"AirTunes/220.68" forAdditionalHeader:@"Server"];
+                [response setValue:@"1" forAdditionalHeader:@"CSeq"];
+                
+                
+            }
+            
+            
+        }else if([method isEqualToString:@"GET"])
+          {
+              if ([path isEqualToString:@"/info"])
+              {
+                   response = [[GCDWebServerResponse alloc] init];
+                   response.contentType = @"text/x-apple-plist+xml";
+                   response.contentLength = 96;//string.length;
+                   response.statusCode = 200;
+                   [response setValue:@"AirTunes/220.68" forAdditionalHeader:@"Server"];
+                   [response setValue:@"1" forAdditionalHeader:@"CSeq"];
+                               
+              }
+        }
+        
+        return response;
+        
+    }];
+    
+    [webServer startWithOptions:@{GCDWebServerOption_AutomaticallyMapHEADToGET:@NO
+                                  ,GCDWebServerOption_Port: @7000,
+                                   GCDWebServerOption_BonjourName:PublishingName
+                                   
+                                   } error:nil];
+       
+       
+}
+
+- (void)disconnectAction {
+    [socket disconnect];
 }
 
 
+- (void)connectAction{
+    
+    if (![socket isConnected]) {
+        socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+        NSError *err = nil;
+        if(![socket acceptOnPort:7000 error:&err])
+        {
+            NSLog(@"connect err%@",err);
+        }else
+        {
+            NSLog(@"connect sucess");
+        }
+    }else{
+        NSLog(@"has connect");
+    }
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket{
+    NSLog(@"%s",__func__);
+    
+    //解决clientsocket是局部变量导致连接关闭的状况
+    [clientSocket addObject:newSocket];
+
+    //-1表示永不超时
+    [newSocket readDataWithTimeout:-1 tag:0];
+}
+
+//读取客户端的数据
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    NSData * dataStr = [OAUtil UTF8Data:data];
+    NSString * str  =[[NSString alloc] initWithData:dataStr encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",str);
+
+    [socket readDataWithTimeout:-1 tag:0];
+}
 
 -(void)netServiceDidPublish:(NSNetService *)sender{
+    NSLog(@"%s",__func__);
+
     NSLog(@"netServiceDidPublish-%@",sender);
     
-//    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//
-//    dispatch_async(concurrentQueue, ^{
-//    NSRunLoop *mainRunLoop = [NSRunLoop currentRunLoop];
-//    NSNetServiceBrowser* browser = [[NSNetServiceBrowser alloc] init];
-//    browser.delegate = self;
-//    [browser scheduleInRunLoop:mainRunLoop forMode:NSRunLoopCommonModes];
-//    [browser searchForServicesOfType:AirPlayServiceType inDomain:@"local."]; [mainRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]]; });
-//
+    [self connectAction];
 }
 -(void)netServiceWillPublish:(NSNetService *)sender{
+    NSLog(@"%s",__func__);
+
     NSLog(@"netServiceWillPublish-%@",sender);
 
 }
 
 -(void)netService:(NSNetService *)sender didNotPublish:(NSDictionary<NSString *,NSNumber *> *)errorDict{
-    
+    NSLog(@"%s",__func__);
+
 }
 
 -(void)netServiceDidStop:(NSNetService *)sender{
-    
+    NSLog(@"%s",__func__);
+
 }
 
 -(void)netServiceWillResolve:(NSNetService *)sender{
-    
+    NSLog(@"%s",__func__);
+
 }
 
 -(void)netService:(NSNetService *)sender didNotResolve:(NSDictionary<NSString *,NSNumber *> *)errorDict{
-    
+    NSLog(@"%s",__func__);
+
 }
 
 -(void)netServiceDidResolveAddress:(NSNetService *)sender{
     NSLog(@"%s",__func__);
-    NSData *address = [sender.addresses firstObject];
-    struct sockaddr_in *socketAddress = (struct sockaddr_in *) [address bytes];
-    NSString *hostName = [sender hostName];
-    Byte *bytes = (Byte *)[[sender TXTRecordData] bytes];
-    int8_t lenth = (int8_t)bytes[0];
-    const void*textData = &bytes[1];
-    NSLog(@"server info: ip:%s, hostName:%@, text:%s, length:%d",socketAddress,hostName,textData,lenth);
-    
 }
 
 -(void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data{
-    
+    NSLog(@"%s",__func__);
+
 }
 
 
 -(void)netService:(NSNetService *)sender didAcceptConnectionWithInputStream:(NSInputStream *)inputStream outputStream:(NSOutputStream *)outputStream{
+    NSLog(@"%s",__func__);
+
+}
+
+
+/**
+ *  This method is called after the server has successfully started.
+ */
+- (void)webServerDidStart:(GCDWebServer*)server
+{
+    
+
+}
+
+/**
+ *  This method is called after the Bonjour registration for the server has
+ *  successfully completed.
+ *
+ *  Use the "bonjourServerURL" property to retrieve the Bonjour address of the
+ *  server.
+ */
+- (void)webServerDidCompleteBonjourRegistration:(GCDWebServer*)server
+{
     
 }
 
-
-
-
-
-
-/*
- * 即将查找服务
+/**
+ *  This method is called after the NAT port mapping for the server has been
+ *  updated.
+ *
+ *  Use the "publicServerURL" property to retrieve the public address of the
+ *  server.
  */
-- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)browser {
-    NSLog(@"-----------------netServiceBrowserWillSearch");
+- (void)webServerDidUpdateNATPortMapping:(GCDWebServer*)server
+{
+    
 }
 
-/*
- * 停止查找服务
+/**
+ *  This method is called when the first GCDWebServerConnection is opened by the
+ *  server to serve a series of HTTP requests.
+ *
+ *  A series of HTTP requests is considered ongoing as long as new HTTP requests
+ *  keep coming (and new GCDWebServerConnection instances keep being opened),
+ *  until before the last HTTP request has been responded to (and the
+ *  corresponding last GCDWebServerConnection closed).
  */
-- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)browser {
-    NSLog(@"-----------------netServiceBrowserDidStopSearch");
+- (void)webServerDidConnect:(GCDWebServer*)server
+{
+    
 }
 
-/*
- * 查找服务失败
+/**
+ *  This method is called when the last GCDWebServerConnection is closed after
+ *  the server has served a series of HTTP requests.
+ *
+ *  The GCDWebServerOption_ConnectedStateCoalescingInterval option can be used
+ *  to have the server wait some extra delay before considering that the series
+ *  of HTTP requests has ended (in case there some latency between consecutive
+ *  requests). This effectively coalesces the calls to -webServerDidConnect:
+ *  and -webServerDidDisconnect:.
  */
-- (void)netServiceBrowser:(NSNetServiceBrowser *)browser didNotSearch:(NSDictionary<NSString *, NSNumber *> *)errorDict {
-    NSLog(@"----------------netServiceBrowser didNotSearch");
+- (void)webServerDidDisconnect:(GCDWebServer*)server
+{
+    
 }
 
-/*
- * 发现域名服务
+/**
+ *  This method is called after the server has stopped.
  */
-- (void)netServiceBrowser:(NSNetServiceBrowser *)browser didFindDomain:(NSString *)domainString moreComing:(BOOL)moreComing {
-    NSLog(@"---------------netServiceBrowser didFindDomain");
+- (void)webServerDidStop:(GCDWebServer*)server
+{
+    
 }
 
-/*
- * 发现客户端服务
- */
-- (void)netServiceBrowser:(NSNetServiceBrowser *)browser didFindService:(NSNetService *)service moreComing:(BOOL)moreComing {
-    NSLog(@"didFindService---------=%@  =%@  =%@",service.name,service.addresses,service.hostName);
-
-}
-
-/*
- * 域名服务移除
- */
-- (void)netServiceBrowser:(NSNetServiceBrowser *)browser didRemoveDomain:(NSString *)domainString moreComing:(BOOL)moreComing {
-    NSLog(@"---------------netServiceBrowser didRemoveDomain");
-}
-
-/*
- * 客户端服务移除
- */
-- (void)netServiceBrowser:(NSNetServiceBrowser *)browser didRemoveService:(NSNetService *)service moreComing:(BOOL)moreComing {
-    NSLog(@"---------------netServiceBrowser didRemoveService");
-}
 
 
 - (void)setRepresentedObject:(id)representedObject {

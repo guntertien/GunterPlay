@@ -14,4 +14,7 @@ NSString *const AirTunesServiceType = @"_raop._tcp";
 NSString *const UseNetworkInterface = @"en0"; //Wifi
 //NSString *const UseNetworkInterface = @"en1"; // Ethernet
 
+NSString *const PublishingDomain =  @"local.";
+NSString *const PublishingName = @"GunterPlay";
+
 @end

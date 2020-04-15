@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28FC424CDD0FD2C197948EF9 /* libPods-GunterPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A50985479C5511F380B8AF71 /* libPods-GunterPlay.a */; };
 		5559AA702441A866005FAAA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA6F2441A866005FAAA6 /* AppDelegate.m */; };
 		5559AA732441A866005FAAA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA722441A866005FAAA6 /* ViewController.m */; };
 		5559AA752441A869005FAAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5559AA742441A869005FAAA6 /* Assets.xcassets */; };
 		5559AA782441A869005FAAA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5559AA762441A869005FAAA6 /* Main.storyboard */; };
 		5559AA7B2441A869005FAAA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA7A2441A869005FAAA6 /* main.m */; };
-		5559AA842442FA46005FAAA6 /* OAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA832442FA46005FAAA6 /* OAUtil.m */; };
-		5559AA872442FA8E005FAAA6 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559AA862442FA8E005FAAA6 /* Constants.m */; };
-		5559AA9924433B4B005FAAA6 /* libPods-jairserver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5559AA9824433B3E005FAAA6 /* libPods-jairserver.a */; };
+		559C3C2C24456B9600BEC487 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C3C2424456B9600BEC487 /* Constants.m */; };
+		559C3C2E24456B9600BEC487 /* OAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C3C2624456B9600BEC487 /* OAUtil.m */; };
+		559C3C302445757C00BEC487 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 559C3C2F2445757C00BEC487 /* libiconv.tbd */; };
+		559C3C3E244615C300BEC487 /* ReadBinaryPList.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C3C3D244615C300BEC487 /* ReadBinaryPList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EF096264816AF55C6F9F106 /* Pods-GunterPlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GunterPlay.release.xcconfig"; path = "Target Support Files/Pods-GunterPlay/Pods-GunterPlay.release.xcconfig"; sourceTree = "<group>"; };
 		5559AA6B2441A866005FAAA6 /* GunterPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GunterPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5559AA6E2441A866005FAAA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5559AA6F2441A866005FAAA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,11 +31,17 @@
 		5559AA792441A869005FAAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5559AA7A2441A869005FAAA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5559AA7C2441A869005FAAA6 /* GunterPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GunterPlay.entitlements; sourceTree = "<group>"; };
-		5559AA822442FA46005FAAA6 /* OAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAUtil.h; sourceTree = "<group>"; };
-		5559AA832442FA46005FAAA6 /* OAUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAUtil.m; sourceTree = "<group>"; };
-		5559AA852442FA8E005FAAA6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		5559AA862442FA8E005FAAA6 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		5559AA9824433B3E005FAAA6 /* libPods-jairserver.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-jairserver.a"; path = "GunterPlay/libPods-jairserver.a"; sourceTree = "<group>"; };
+		559C3C2424456B9600BEC487 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		559C3C2624456B9600BEC487 /* OAUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAUtil.m; sourceTree = "<group>"; };
+		559C3C2824456B9600BEC487 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		559C3C2A24456B9600BEC487 /* OAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAUtil.h; sourceTree = "<group>"; };
+		559C3C2F2445757C00BEC487 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		559C3C392446098000BEC487 /* libtbox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtbox.a; path = ../../../../Downloads/tbox/build/macosx/x86_64/release/libtbox.a; sourceTree = "<group>"; };
+		559C3C3B24460B2700BEC487 /* tbox.config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tbox.config.h; sourceTree = "<group>"; };
+		559C3C3C244615C300BEC487 /* ReadBinaryPList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadBinaryPList.h; sourceTree = "<group>"; };
+		559C3C3D244615C300BEC487 /* ReadBinaryPList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadBinaryPList.m; sourceTree = "<group>"; };
+		84A199458F42770F4A997737 /* Pods-GunterPlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GunterPlay.debug.xcconfig"; path = "Target Support Files/Pods-GunterPlay/Pods-GunterPlay.debug.xcconfig"; sourceTree = "<group>"; };
+		A50985479C5511F380B8AF71 /* libPods-GunterPlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GunterPlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5559AA9924433B4B005FAAA6 /* libPods-jairserver.a in Frameworks */,
+				559C3C302445757C00BEC487 /* libiconv.tbd in Frameworks */,
+				28FC424CDD0FD2C197948EF9 /* libPods-GunterPlay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +63,7 @@
 				5559AA6D2441A866005FAAA6 /* GunterPlay */,
 				5559AA6C2441A866005FAAA6 /* Products */,
 				5559AA9724433B3E005FAAA6 /* Frameworks */,
+				DFBB58F6E4B93EF8B3C50902 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,14 +78,11 @@
 		5559AA6D2441A866005FAAA6 /* GunterPlay */ = {
 			isa = PBXGroup;
 			children = (
-				5559AA852442FA8E005FAAA6 /* Constants.h */,
-				5559AA862442FA8E005FAAA6 /* Constants.m */,
-				5559AA822442FA46005FAAA6 /* OAUtil.h */,
-				5559AA832442FA46005FAAA6 /* OAUtil.m */,
 				5559AA6E2441A866005FAAA6 /* AppDelegate.h */,
 				5559AA6F2441A866005FAAA6 /* AppDelegate.m */,
 				5559AA712441A866005FAAA6 /* ViewController.h */,
 				5559AA722441A866005FAAA6 /* ViewController.m */,
+				559C3C2224456B9600BEC487 /* Common */,
 				5559AA742441A869005FAAA6 /* Assets.xcassets */,
 				5559AA762441A869005FAAA6 /* Main.storyboard */,
 				5559AA792441A869005FAAA6 /* Info.plist */,
@@ -87,9 +95,34 @@
 		5559AA9724433B3E005FAAA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5559AA9824433B3E005FAAA6 /* libPods-jairserver.a */,
+				559C3C392446098000BEC487 /* libtbox.a */,
+				559C3C2F2445757C00BEC487 /* libiconv.tbd */,
+				A50985479C5511F380B8AF71 /* libPods-GunterPlay.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		559C3C2224456B9600BEC487 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				559C3C3B24460B2700BEC487 /* tbox.config.h */,
+				559C3C2824456B9600BEC487 /* Constants.h */,
+				559C3C2424456B9600BEC487 /* Constants.m */,
+				559C3C2A24456B9600BEC487 /* OAUtil.h */,
+				559C3C2624456B9600BEC487 /* OAUtil.m */,
+				559C3C3C244615C300BEC487 /* ReadBinaryPList.h */,
+				559C3C3D244615C300BEC487 /* ReadBinaryPList.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		DFBB58F6E4B93EF8B3C50902 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84A199458F42770F4A997737 /* Pods-GunterPlay.debug.xcconfig */,
+				1EF096264816AF55C6F9F106 /* Pods-GunterPlay.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +132,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5559AA7F2441A869005FAAA6 /* Build configuration list for PBXNativeTarget "GunterPlay" */;
 			buildPhases = (
+				6932A4BAED8AB2A99AEDFD54 /* [CP] Check Pods Manifest.lock */,
 				5559AA672441A866005FAAA6 /* Sources */,
 				5559AA682441A866005FAAA6 /* Frameworks */,
 				5559AA692441A866005FAAA6 /* Resources */,
@@ -156,16 +190,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6932A4BAED8AB2A99AEDFD54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GunterPlay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5559AA672441A866005FAAA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5559AA872442FA8E005FAAA6 /* Constants.m in Sources */,
 				5559AA732441A866005FAAA6 /* ViewController.m in Sources */,
-				5559AA842442FA46005FAAA6 /* OAUtil.m in Sources */,
+				559C3C3E244615C300BEC487 /* ReadBinaryPList.m in Sources */,
 				5559AA7B2441A869005FAAA6 /* main.m in Sources */,
+				559C3C2E24456B9600BEC487 /* OAUtil.m in Sources */,
 				5559AA702441A866005FAAA6 /* AppDelegate.m in Sources */,
+				559C3C2C24456B9600BEC487 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +354,7 @@
 		};
 		5559AA802441A869005FAAA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84A199458F42770F4A997737 /* Pods-GunterPlay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GunterPlay/GunterPlay.entitlements;
@@ -317,6 +378,7 @@
 		};
 		5559AA812441A869005FAAA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EF096264816AF55C6F9F106 /* Pods-GunterPlay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GunterPlay/GunterPlay.entitlements;

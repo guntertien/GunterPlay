@@ -13,4 +13,6 @@ FOUNDATION_EXPORT NSString *const AirTunesServiceType;
 
 FOUNDATION_EXPORT NSString *const UseNetworkInterface;
 
+FOUNDATION_EXPORT NSString *const PublishingDomain;
+FOUNDATION_EXPORT NSString *const PublishingName;
 @end
