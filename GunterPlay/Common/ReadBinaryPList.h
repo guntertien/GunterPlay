@@ -104,6 +104,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ReadBinaryPList : NSObject
 
+id ReadBinaryPListData(NSData *data);
+
+
 @end
 
 NS_ASSUME_NONNULL_END

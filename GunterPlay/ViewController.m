@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "OAUtil.h"
 #import "Constants.h"
-
+#import "ReadBinaryPList.h"
 
 @implementation ViewController
 
@@ -55,14 +55,14 @@
         
     } processBlock:^GCDWebServerResponse *(GCDWebServerRequest* request) {
         
-        
         NSString *method = request.method;
         NSString *url = request.URL.relativePath;
         NSString *path = request.path;
         NSString *contentType = request.contentType;
         
         
-        
+//        id  dics =   [ReadBinaryPList ReadBinaryPListData:];
+
         
         NSLog(@"method=%@ url=%@ path=%@ contentType=%@",method,url,path,contentType);
         
@@ -161,7 +161,7 @@
 {
     NSData * dataStr = [OAUtil UTF8Data:data];
     NSString * str  =[[NSString alloc] initWithData:dataStr encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",str);
+    NSLog(@"didReadData：%@",str);
 
     [socket readDataWithTimeout:-1 tag:0];
 }

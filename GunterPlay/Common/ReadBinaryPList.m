@@ -18,7 +18,7 @@ BOOL IsBinaryPList(NSData *data)
 }
 
 
-id ReadBinaryPList(NSData *data){
+id ReadBinaryPListData(NSData *data){
     if (data == nil)  return nil;
     if (!IsBinaryPList(data))
     {
@@ -451,7 +451,7 @@ static id ExtractArray(BPListInfo bplist, uint64_t offset)
     uint64_t            size;
     uint64_t            elementID;
     id                    element = nil;
-    id                    *array = NULL;
+    NSMutableArray        *msarray = nil;
     NSArray                *result = nil;
     BOOL                OK = YES;
     
@@ -495,8 +495,8 @@ static id ExtractArray(BPListInfo bplist, uint64_t offset)
     
     if (count == 0)  return [NSArray array];
     
-    array = malloc(sizeof (id) * count);
-    if (array == NULL)
+    msarray = [[NSMutableArray alloc]init];
+    if (msarray == nil)
     {
         BPListLog(@"Not enough memory to read plist.");
         return nil;
@@ -511,7 +511,7 @@ static id ExtractArray(BPListInfo bplist, uint64_t offset)
             element = ExtractObject(bplist, elementID);
             if (element != nil)
             {
-                array[i] = element;
+                [msarray addObject:element];
             }
             else
             {
@@ -519,7 +519,7 @@ static id ExtractArray(BPListInfo bplist, uint64_t offset)
                 break;
             }
         }
-        if (OK)  result = [[NSArray alloc] initWithObjects:array count:count];
+        if (OK)  result =msarray;// [[NSArray alloc] initWithObjects:msarray count:count];
     }
     @finally
     {
@@ -535,8 +535,8 @@ static id ExtractDictionary(BPListInfo bplist, uint64_t offset)
     uint64_t            size;
     uint64_t            elementID;
     id                    element = nil;
-    id                    *keys = NULL;
-    id                    *values = NULL;
+    NSMutableArray        *keys = NULL;
+    NSMutableArray        *values = NULL;
     NSDictionary        *result = nil;
     BOOL                OK = YES;
     
@@ -580,14 +580,14 @@ static id ExtractDictionary(BPListInfo bplist, uint64_t offset)
     
     if (count == 0)  return [NSDictionary dictionary];
     
-    keys = malloc(sizeof (id) * count);
+    keys  = [NSMutableArray arrayWithCapacity:count];
     if (keys == NULL)
     {
         BPListLog(@"Not enough memory to read plist.");
         return nil;
     }
     
-    values = malloc(sizeof (id) * count);
+    values = [NSMutableArray arrayWithCapacity:count];
     if (values == NULL)
     {
 
@@ -624,7 +624,7 @@ static id ExtractDictionary(BPListInfo bplist, uint64_t offset)
                 break;
             }
         }
-        if (OK)  result = [[NSDictionary alloc] initWithObjects:values forKeys:keys count:count];
+        if (OK)  result = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
     }
     @finally
     {
